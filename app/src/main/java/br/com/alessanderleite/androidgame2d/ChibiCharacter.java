@@ -29,4 +29,22 @@ public class ChibiCharacter extends GameObject {
 
     private GameSurface gameSurface;
 
+    public ChibiCharacter(GameSurface gameSurface, Bitmap image, int x, int y) {
+        super(image,4,3, x, y);
+
+        this.gameSurface = gameSurface;
+
+        this.topToBottoms = new Bitmap[colCount]; //3
+        this.rightToLefts = new Bitmap[colCount]; //3
+        this.leftToRights = new Bitmap[colCount]; //3
+        this.bottomToTops = new Bitmap[colCount]; //3
+
+        for (int col = 0; col < this.colCount; col++) {
+            this.topToBottoms[col] = this.createSubImageAt(ROW_TOP_TO_BOTTOM, col);
+            this.rightToLefts[col] = this.createSubImageAt(ROW_RIGHT_TO_LEFT, col);
+            this.leftToRights[col] = this.createSubImageAt(ROW_LEFT_TO_RIGHT, col);
+            this.bottomToTops[col] = this.createSubImageAt(ROW_BOTTOM_TO_TOP, col);
+        }
+    }
+
 }
