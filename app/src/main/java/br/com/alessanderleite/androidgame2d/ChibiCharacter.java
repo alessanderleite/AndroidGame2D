@@ -47,4 +47,19 @@ public class ChibiCharacter extends GameObject {
         }
     }
 
+    public Bitmap[] getMoveBitmaps() {
+        switch (rowUsing) {
+            case ROW_BOTTOM_TO_TOP:
+                return this.bottomToTops;
+            case ROW_LEFT_TO_RIGHT:
+                return this.leftToRights;
+            case ROW_RIGHT_TO_LEFT:
+                return this.rightToLefts;
+            case ROW_TOP_TO_BOTTOM:
+                return this.topToBottoms;
+            default:
+                return null;
+        }
+    }
+
 }
