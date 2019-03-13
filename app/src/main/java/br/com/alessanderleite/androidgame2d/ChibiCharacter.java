@@ -1,6 +1,7 @@
 package br.com.alessanderleite.androidgame2d;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 
 public class ChibiCharacter extends GameObject {
 
@@ -128,5 +129,17 @@ public class ChibiCharacter extends GameObject {
                 this.rowUsing = ROW_RIGHT_TO_LEFT;
             }
         }
+    }
+
+    public void draw(Canvas canvas) {
+        Bitmap bitmap = this.getCurrentMoveBitmap();
+        canvas.drawBitmap(bitmap, x, y,null);
+        //Last draw time
+        this.lastDrawNanoTime = System.nanoTime();
+    }
+
+    public void setMovingVector(int movingVectorX, int movingVectorY) {
+        this.movingVectorX = movingVectorX;
+        this.movingVectorY = movingVectorY;
     }
 }
